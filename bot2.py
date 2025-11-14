@@ -7,7 +7,7 @@ import asyncio  # Required for the wait timer
 
 # Configuration
 STEAM_GAME_ID = "2414270"
-TOKEN = os.getenv("DISCORD_BOT_TOKEN", "MTQzNzgxNDE1OTU3OTQxNDYyMA.GDJuo5.2wKhx-lPrvAtvo9WKQhd91gHoDfo2VAkb6rwGI")
+TOKEN = os.getenv("DISCORD_BOT_TOKEN", "INSERT DISCORD TOKEN HERE")
 
 # PyAutoGUI Safety
 pyautogui.FAILSAFE = True
