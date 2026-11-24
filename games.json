@@ -1,0 +1,20 @@
+{
+    "sunderfolk": {
+        "appid": "2414270",
+        "process_name": "Sunderfolk",
+        "post_launch": [
+            {
+                "message": "⏳ Waiting 60s for splash screen and QR generation...",
+                "wait": 60
+            },
+            {
+                "press": "enter",
+                "wait": 1
+            },
+            {
+                "press": "enter",
+                "message": "📱 QR code should now be available for log in."
+            }
+        ]
+    }
+}
