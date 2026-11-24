@@ -366,6 +366,32 @@ async def remove_game(ctx: commands.Context, game_name: str):
     await ctx.send(f"✅ Removed `{game_name}` from the list.")
 
 
+@bot.command(name="reload")
+@commands.is_owner()
+async def reload_games(ctx: commands.Context):
+    """Reloads games.json from disk without restarting the bot."""
+    if not GAMES_FILE.exists():
+        await ctx.send(f"❌ `{GAMES_FILE.name}` not found. Keeping existing {len(GAMES)} game(s).")
+        return
+
+    try:
+        content = GAMES_FILE.read_text(encoding="utf-8").strip()
+        data = json.loads(content) if content else {}
+        if not isinstance(data, dict):
+            raise ValueError("Root JSON value must be an object.")
+        normalized = {str(k).lower(): v for k, v in data.items()}
+    except Exception as e:
+        await ctx.send(
+            f"❌ Failed to reload `{GAMES_FILE.name}`: `{e}`\n"
+            f"Keeping existing {len(GAMES)} game(s) in memory."
+        )
+        return
+
+    GAMES.clear()
+    GAMES.update(normalized)
+    await ctx.send(f"🔄 Reloaded `{GAMES_FILE.name}` ({len(GAMES)} game(s) configured).")
+
+
 # --- Public Commands ---
 @bot.command()
 async def status(ctx: commands.Context, game_name: str):

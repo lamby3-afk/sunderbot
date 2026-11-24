@@ -29,6 +29,7 @@ A cross-platform (Windows / Linux / macOS) Discord bot to launch and manage Stea
 | `!press <key>` | Owner / Role | Sends an allowed key (`enter`, `esc`, `space`, `up`, `down`, `left`, `right`, `tab`) |
 | `!add_game <name> <appid> <process>` | Owner | Adds a game to `games.json` |
 | `!remove_game <name>` | Owner | Removes a game from `games.json` |
+| `!reload` | Owner | Reloads `games.json` from disk without restarting the bot |
 
 ## Custom Post-Launch Sequences
 
